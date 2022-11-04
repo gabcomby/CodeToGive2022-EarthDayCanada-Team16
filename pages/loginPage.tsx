@@ -5,6 +5,8 @@ import {getAuth} from "firebase/auth";
 import { initFirebase } from "../firebase/firebaseApp";
 import {useState} from 'react'
 import { Listbox } from '@headlessui/react'
+import Head from 'next/head';
+import TopBar from '../components/topbar';
 
 const people = [
   { id: 1, name: 'Farmer', unavailable: false },
@@ -50,6 +52,13 @@ export default function Home() {
       const emailVerified = currentUser.emailVerified;
 
       return (
+    <>
+      <div>
+        <Head>
+            <title>Gleanathon</title>
+        </Head>
+        <TopBar></TopBar>
+      </div>
       <div>
         <div style={{display:'flex', flexDirection:'column'}}>
           <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
@@ -267,6 +276,7 @@ export default function Home() {
         </div>
 
       </div>
+    </>
       )
     }
 }
