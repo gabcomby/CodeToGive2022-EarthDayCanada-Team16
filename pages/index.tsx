@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import { initFirebase } from "../firebase/firebaseApp";
 import { FormEvent, useState } from "react";
 import React from "react";
-import { Button, Form } from 'react-bootstrap';
 
 export default function Home() {
 initFirebase();
@@ -28,12 +27,11 @@ const signIn = async() =>{
 
 return (
   <div style={{display:'flex', flexDirection:'column'}}>
-    <div style={{display:'flex', flexDirection:'column'}}>
-      <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>Please Sign In With Google</div>
-      <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
-        <button style={{alignItems:'center', margin:15}} onClick={signIn}>Sign In With Google</button>
-      </div>
-      <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>Or Sign In With Email</div>
+    <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
+      <h1>Please Sign In With Your Google Account</h1>
+    </div>
+    <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
+      <button style={{alignItems:'center', margin:15}} onClick={signIn}>Sign In With Google</button>
     </div>
   </div>
 )

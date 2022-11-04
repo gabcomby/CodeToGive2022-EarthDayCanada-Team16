@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.4",
     "@types/node": "18.11.9",
+    "bulma": "^0.9.4",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.1",
     "firebase": "^9.13.0",
