@@ -1,0 +1,60 @@
+
+    @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap');
+    .container {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Work Sans', sans-serif;
+    }
+    .header{
+    position: sticky;
+    z-index: 30;
+    top: 0;
+    }
+    .main_nav{
+    display: flex;
+    padding: 0 16px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: green;
+    }
+    .nav__menu_bar{
+    display: flex;
+    flex-direction: column;
+    row-gap: 6px;
+    cursor: pointer;
+    }
+    .nav__menu_bar div{
+    width: 40px;
+    height: 4px;
+    background-color: black;
+    border-radius: 2px;
+    }
+    .nav__menu_list{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    width: 288px;
+    row-gap: 24px;
+    right: -288px;
+    padding: 24px 16px;
+    transition: all 0.2s;
+    min-height: calc(100vh - 60px);
+    background-color: white;
+    }
+    .nav__menu_list.active{
+    right: 0;
+    }
+    .nav__link{
+    font-size: 22px; 
+    position: relative;
+    transition: all 0.2s;
+    margin: 0 15px
+    }
+
+    .nav__link:hover{
+    text-shadow: 1px 0px 10px white;
+    color: #c0c0c0
+    }
