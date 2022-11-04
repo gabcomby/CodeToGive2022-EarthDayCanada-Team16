@@ -39,7 +39,7 @@ export default function Home() {
     //TUTORIEL : https://daily-dev-tips.com/posts/using-forms-in-nextjs/
     const submitContact = async (event:any) => {
       event.preventDefault();
-      alert(`So your name is ${event.target.farmName.value}?`);
+      // alert(`So your name is ${event.target.farmName.value}?`);
     };
 
     if (currentUser !== null) {
