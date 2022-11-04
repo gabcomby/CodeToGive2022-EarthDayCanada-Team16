@@ -50,11 +50,26 @@
     .nav__link{
     font-size: 22px; 
     position: relative;
-    transition: all 0.2s;
+    transition: all 0.3s ease-in-out;
     margin: 0 15px
     }
 
     .nav__link:hover{
-    text-shadow: 1px 0px 10px white;
-    color: #c0c0c0
+    /* text-shadow: 1px 0px 10px #404040; */
+    }
+
+    .nav__link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 0;
+        height: 2px;
+        top: 28px;
+        background-color: black;
+        transition: all 0.1s ease-in-out;
+    }
+
+    .nav__link:hover::after {
+        width: 100%;
     }

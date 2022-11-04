@@ -1,5 +1,5 @@
 import Link from "next/link"
-import styles from "../../styles/nav-bar.module.css"
+import styles from "../styles/nav-bar.module.css"
 
 function navElement(params: {name: string, href: string}) {
 

@@ -1,29 +1,31 @@
-import Link from 'next/link'
+import Link from "next/link"
+import Image from "next/image"
+import NavElement from "./nav-element"
+import styles from "../styles/nav-bar.module.css"
 
 export default function TopBar (){
-
-const pages_links = ["/authpage", "/offers", "/events"];
-    const pages_name = ['Login / Sign Up', 'Offers', 'Events'];
-    const nb_of_pages = 3
-
-    function render_pages() {
-        let pages = [];
-        for (let i = 0; i < nb_of_pages; i++) {
-            pages.push(
-                <div key={i}>
-                <Link href={pages_links[i]}>
-                    {pages_name[i]}
-                </Link>
-                </div>
-            );
-    }
-    return pages;
-  }
+    const NAV_ELEMENTS = [
+        {name: "Home", href: "/"},
+        {name: "Offers", href: "/offers"},
+        {name: "Events", href: "/events"},
+        {name: "Login/Sign Up", href: "/authpage"}
+    ]
 
     return (
-        <div>
-            <Link href="/">Gleanathon</Link>
-            {render_pages()}
-        </div>
-    )
+        <div className={styles.container}>   
+            <header className={styles.header}>
+                <nav className={styles.main_nav}>
+                    <Link href={"/"}>
+                        <h1 className={styles.logo}>LOGO</h1>
+                    </Link>
+                
+                    <div className={styles.element_container}>
+                        {NAV_ELEMENTS.map((x: {name: string, href: string}, i: number) => (
+                            <NavElement {...x}></NavElement>
+                        ))}
+                    </div>
+                </nav>
+            </header>
+        </div> 
+        )
 }
