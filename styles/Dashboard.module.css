@@ -1,0 +1,47 @@
+.dashboard{
+  background-color: rgb(255, 255, 255);
+  border: 5px solid rgb(100, 100, 100);
+  border-radius: 5px;
+  margin-left: 7.5%;
+  margin-right: 7.5%;
+  margin-bottom: 100px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  /*make the dashboard span the entire page in height*/
+    height: auto;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+}
+
+.dashboard_header {
+    width: 100%;
+    background-color: #ccc;
+    height: 75px;
+    border-bottom: 2.5px solid rgb(100, 100, 100);
+    display: flex;
+}
+
+.dashboard_content {
+    width: 100%;
+    background-color: #ccc;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+
+.dashboard_title {
+    color: black;
+    margin: auto;
+    font-size: 30px;
+}
+
+.offer {
+    width:100%;
+    border-bottom: 2.5px solid rgb(100, 100, 100);
+    border-top: 2.5px solid rgb(100, 100, 100);
+}
