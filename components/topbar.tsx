@@ -12,20 +12,19 @@ export default function TopBar (){
     ]
 
     return (
-        <div className={styles.container}>   
+        <div className={styles.container}>
             <header className={styles.header}>
                 <nav className={styles.main_nav}>
                     <Link href={"/"}>
                         <h1 className={styles.logo}>LOGO</h1>
                     </Link>
-                
                     <div className={styles.element_container}>
                         {NAV_ELEMENTS.map((x: {name: string, href: string}, i: number) => (
-                            <NavElement {...x}></NavElement>
+                            <NavElement {...x} key={i}></NavElement>
                         ))}
                     </div>
                 </nav>
             </header>
-        </div> 
+        </div>
         )
 }
