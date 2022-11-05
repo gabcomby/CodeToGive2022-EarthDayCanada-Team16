@@ -2,6 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import NavElement from "./nav-element"
 import styles from "../styles/nav-bar.module.css"
+import logo from "../images/image.png"
 
 export default function TopBar (){
     const NAV_ELEMENTS = [
@@ -12,19 +13,23 @@ export default function TopBar (){
     ]
 
     return (
-        <div className={styles.container}>
-            <header className={styles.header}>
-                <nav className={styles.main_nav}>
-                    <Link href={"/"}>
-                        <h1 className={styles.logo}>LOGO</h1>
-                    </Link>
-                    <div className={styles.element_container}>
-                        {NAV_ELEMENTS.map((x: {name: string, href: string}, i: number) => (
-                            <NavElement {...x} key={i}></NavElement>
-                        ))}
-                    </div>
-                </nav>
-            </header>
-        </div>
+        <>
+            <div className={styles.container}>
+                <header className={styles.header}>
+                    <nav className={styles.main_nav}>
+                        <Link href={"/"} >
+                        <Image src={logo} alt="Gleanathon" width={240} height={48} className={styles.logo_2}></Image>
+                        </Link>
+                        <div className={styles.element_container}>
+                            {NAV_ELEMENTS.map((x: {name: string, href: string}, i: number) => (
+                                <NavElement {...x} key={i}></NavElement>
+                            ))}
+                        </div>
+                    </nav>
+                </header>
+            </div>
+            <div className={styles.offset}></div>
+        </>
+        
         )
 }

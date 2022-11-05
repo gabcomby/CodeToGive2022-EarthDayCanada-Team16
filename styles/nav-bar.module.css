@@ -6,6 +6,9 @@
     outline: none;
     box-sizing: border-box;
     font-family: 'Work Sans', sans-serif;
+    position: fixed;
+    top: 0px;
+    width: 100%;
     }
     .header{
     position: sticky;
@@ -17,7 +20,8 @@
     padding: 0 16px;
     justify-content: space-between;
     align-items: center;
-    background-color: green;
+    background-color: #298273;
+    height: 70px;
     }
     .nav__menu_bar{
     display: flex;
@@ -72,4 +76,8 @@
 
     .nav__link:hover::after {
         width: 100%;
+    }
+
+    .offset {
+        height: 70px;
     }
