@@ -45,3 +45,65 @@
     border-bottom: 2.5px solid rgb(100, 100, 100);
     border-top: 2.5px solid rgb(100, 100, 100);
 }
+
+.offer_first_row {
+    display: flex;
+    display: row;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.offer_second_row {
+    display: flex;
+    display: column;
+    align-items: flex-start;
+    position: relative;
+}
+
+.offer_third_row {
+    display: flex;
+}
+
+.offer_distance {
+    width: 50%;
+    margin-left: 2.5%;
+}
+
+.offer_farm_name {
+    width: 50%;
+    margin-left: 2.5%;
+}
+
+.expand_offer_button {
+    width: 30px;
+    height: 30px;
+    font-size: large;
+    border-right: 0px;
+    border-bottom: 0px;
+    border-top: 2.5px solid rgb(100, 100, 100);
+    border-left: 2.5px solid rgb(100, 100, 100);
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 15px;
+}
+
+.offer_quantity {
+    width: 45%
+}
+
+.collapsible .content {
+    border-top: 5px solid rgb(100, 100, 100);
+    background-color: #ccc;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+}
+.collapsible .header {
+    display: flex;
+    justify-content: right;
+    background-color: #ccc;
+}
+
+.description {
+    margin: 30px;
+}
