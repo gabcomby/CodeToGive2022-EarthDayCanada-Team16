@@ -3,8 +3,13 @@ import Image from "next/image"
 import NavElement from "./nav-element"
 import styles from "../styles/nav-bar.module.css"
 import logo from "../images/image.png"
+import { useContext } from "react"
+import AuthContext from "../stores/authContext"
 
 export default function TopBar (){
+    const user = useContext(AuthContext)
+    console.log(user)
+    
     const NAV_ELEMENTS = [
         {name: "Home", href: "/"},
         {name: "Offers", href: "/offers"},
@@ -30,6 +35,6 @@ export default function TopBar (){
             </div>
             <div className={styles.offset}></div>
         </>
-        
-        )
+
+    )
 }
