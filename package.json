@@ -17,6 +17,7 @@
     "eslint-config-next": "13.0.1",
     "firebase": "^9.13.0",
     "mdb-react-ui-kit": "^5.0.0",
+    "mongodb": "^4.11.0",
     "netlify-identity-widget": "^1.9.2",
     "next": "13.0.1",
     "react": "^18.2.0",
