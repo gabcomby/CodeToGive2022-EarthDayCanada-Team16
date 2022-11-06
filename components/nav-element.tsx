@@ -9,3 +9,5 @@ export default function navElement(params: {name: string, href: string}) {
         </Link>
     )
 }
+
+export {}
