@@ -29,7 +29,7 @@ export default function TopBar (){
                             <NavElement name={NAV_ELEMENTS[0].name} href={NAV_ELEMENTS[0].href}></NavElement>
                             {user && <NavElement name={NAV_ELEMENTS[1].name} href={NAV_ELEMENTS[1].href}></NavElement>}
                             {user && <NavElement name={NAV_ELEMENTS[2].name} href={NAV_ELEMENTS[2].href}></NavElement>}
-                            {user && <a>{user.email}</a>}
+                            {user && <a>{user['email']}</a>}
                             <a onClick={login}>Login</a>
                             {user && <a onClick={logout}>Logout</a>}
 
