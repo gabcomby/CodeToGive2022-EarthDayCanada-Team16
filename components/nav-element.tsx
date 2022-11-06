@@ -1,7 +1,7 @@
 import Link from "next/link"
 import styles from "../styles/nav-bar.module.css"
 
-function navElement(params: {name: string, href: string}) {
+export default function navElement(params: {name: string, href: string}) {
 
     return (
         <Link href = {params.href} legacyBehavior>
@@ -9,5 +9,3 @@ function navElement(params: {name: string, href: string}) {
         </Link>
     )
 }
-
-export default navElement
