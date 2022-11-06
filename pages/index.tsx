@@ -71,8 +71,6 @@ export default function HomePage() {
             <h2>FRUITS AND VEGETABLES</h2>
         </div>
         <Footer></Footer>
-        
-        <script src="../anim/countUp.js"></script>
     </>
     );
 }
