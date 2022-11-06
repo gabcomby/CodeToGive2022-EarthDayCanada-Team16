@@ -27,10 +27,11 @@ export default function TopBar (){
                         </Link>
                         <div className={styles.element_container}>
                             <NavElement name={NAV_ELEMENTS[0].name} href={NAV_ELEMENTS[0].href}></NavElement>
-                            <NavElement name={NAV_ELEMENTS[1].name} href={NAV_ELEMENTS[1].href}></NavElement>
-                            <NavElement name={NAV_ELEMENTS[2].name} href={NAV_ELEMENTS[2].href}></NavElement>
-                            <li onClick={login}>Login</li>
-                            <li onClick={logout}>Logout</li>
+                            {user && <NavElement name={NAV_ELEMENTS[1].name} href={NAV_ELEMENTS[1].href}></NavElement>}
+                            {user && <NavElement name={NAV_ELEMENTS[2].name} href={NAV_ELEMENTS[2].href}></NavElement>}
+                            {user && <a>{user.email}</a>}
+                            <a onClick={login}>Login</a>
+                            {user && <a onClick={logout}>Logout</a>}
 
                         </div>
                     </nav>
