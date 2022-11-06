@@ -7,6 +7,7 @@ import {useState} from 'react'
 import { Listbox } from '@headlessui/react'
 import Head from 'next/head';
 import TopBar from '../components/topbar';
+import { getDatabase, ref, set } from "firebase/database"
 
 const people = [
   { id: 1, name: 'Farmer', unavailable: false },
@@ -41,6 +42,12 @@ export default function Home() {
     //TUTORIEL : https://daily-dev-tips.com/posts/using-forms-in-nextjs/
     const submitContact = async (event:any) => {
       event.preventDefault();
+      const db = getDatabase();
+      ref(db, "users/gleaners").child().push()
+
+      if (selectedPerson.name == 'Farmer') {
+
+      }
       // alert(`So your name is ${event.target.farmName.value}?`);
     };
 
