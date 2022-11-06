@@ -26,11 +26,8 @@
     "react-firebase-hooks": "^5.0.3",
     "react-bootstrap-range-slider": "^3.0.8",
     "react-collapsed": "^3.5.0",
-<<<<<<< HEAD
-=======
     "react-dom": "^18.2.0",
     "react-firebase-hooks": "^5.0.3",
->>>>>>> backend
     "typescript": "4.8.4"
   },
   "devDependencies": {
