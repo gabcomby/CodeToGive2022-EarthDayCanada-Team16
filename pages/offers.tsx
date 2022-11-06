@@ -8,6 +8,7 @@ import location from "../images/address-3.png"
 import clock from "../images/clock.png"
 import {MDBRange} from 'mdb-react-ui-kit';
 import {useState} from 'react'
+import Footer from "../components/footer"
 
 interface OfferProps {
     farm_name: string;
@@ -154,7 +155,7 @@ export default function Offers() {
         {
             farm_name: 'Farm 6',
             vegetable: 'Cucumber',
-            vegetableEmoji: "🥒",
+            vegetableEmoji: "🍅",
             quantity: 60,
             quantityUnit: "kg",
             address: "907 Amarantes St., H7Y 2G9, QC, CA",
@@ -192,6 +193,7 @@ export default function Offers() {
                     ))}
                 </div>
             </div>
+            <Footer></Footer>
         </div>
 
     );
