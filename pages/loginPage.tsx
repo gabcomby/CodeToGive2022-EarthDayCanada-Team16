@@ -62,7 +62,7 @@ export default function Home() {
       <div>
         <div style={{display:'flex', flexDirection:'column'}}>
           <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
-            <h1>Hello {displayName}, it's good to see you!</h1>
+            <h1>Hello {displayName}, it&quot;s good to see you!</h1>
           </div>
           <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
             <h2>Please answer the following questions to start using this service.</h2>
@@ -70,7 +70,7 @@ export default function Home() {
         </div>
         
         //Code du sélectionneur de type de compte
-        <div style={{display:'flex', alignItems:'center', justifyContent:'center', margin:15, fontSize:20}}>Please select what type of account you'd like to create:</div>
+        <div style={{display:'flex', alignItems:'center', justifyContent:'center', margin:15, fontSize:20}}>Please select what type of account you&quot;d like to create:</div>
         <div style={{display:'flex', alignItems:'center', justifyContent:'center', margin:15}}>
           <Listbox value={selectedPerson} onChange={setSelectedPerson}>
             <Listbox.Button>{selectedPerson.name}</Listbox.Button>
@@ -129,7 +129,7 @@ export default function Home() {
               </div>
 
               <div style={{fontSize:20}} >Legal Disclaimer</div>
-              <div style={{margin:15}}>By clicking the "Register" button, you accept the end-user agreement</div>
+              <div style={{margin:15}}>By clicking the &quot;Register&quot; button, you accept the end-user agreement</div>
 
               <button type="submit" style={{margin:15, fontSize:15}}>
               Submit Form & Complete Registration
@@ -198,7 +198,7 @@ export default function Home() {
               </div>
 
               <div style={{fontSize:20}} >Legal Disclaimer</div>
-              <div style={{margin:15}}>By clicking the "Register" button, you accept the end-user agreement</div>
+              <div style={{margin:15}}>By clicking the &quot;Register&quot; button, you accept the end-user agreement</div>
 
               <button type="submit" style={{margin:15, fontSize:15}}>
               Submit Form & Complete Registration
@@ -259,7 +259,7 @@ export default function Home() {
             </div>
 
             <div style={{fontSize:20}} >Legal Disclaimer</div>
-            <div style={{margin:15}}>By clicking the "Register" button, you accept the end-user agreement</div>
+            <div style={{margin:15}}>By clicking the &quot;Register&quot; button, you accept the end-user agreement</div>
 
             <button type="submit" style={{margin:15, fontSize:15}}>
             Submit Form & Complete Registration
