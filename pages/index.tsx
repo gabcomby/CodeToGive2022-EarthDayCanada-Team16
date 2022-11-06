@@ -56,8 +56,8 @@ export default function HomePage() {
                     <div className={styles.first_line}>
                         <h2 className={styles.h2}>SO WE CREATED THE </h2>
                         <Image src={logo} alt="Gleanathon" width={360} height={72} className={styles.logo_2}></Image>
-                    </div>  
-                    <h5>A fun team building activity with <a className={styles.colored}>environmental</a> and <a className={styles.colored}>social</a> benefits</h5>                
+                    </div>
+                    <h5>A fun team building activity with <a className={styles.colored}>environmental</a> and <a className={styles.colored}>social</a> benefits</h5>
                 </div>
             </div>
         </div>
@@ -71,8 +71,6 @@ export default function HomePage() {
             <h2>FRUITS AND VEGETABLES</h2>
         </div>
         <Footer></Footer>
-        
-        <script src="../anim/countUp.js"></script>
     </>
     );
 }
