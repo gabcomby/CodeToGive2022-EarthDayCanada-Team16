@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.4",
+    "@react-google-maps/api": "^2.14.0",
     "@types/node": "18.11.9",
     "bulma": "^0.9.4",
     "eslint": "8.26.0",
