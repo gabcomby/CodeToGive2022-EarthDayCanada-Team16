@@ -29,7 +29,7 @@ export default function TopBar (){
                             <NavElement name={NAV_ELEMENTS[0].name} href={NAV_ELEMENTS[0].href}></NavElement>
                             <NavElement name={NAV_ELEMENTS[1].name} href={NAV_ELEMENTS[1].href}></NavElement>
                             <NavElement name={NAV_ELEMENTS[2].name} href={NAV_ELEMENTS[2].href}></NavElement>
-                            <li onClick={login}><NavElement name={NAV_ELEMENTS[3].name} href={NAV_ELEMENTS[3].href}></NavElement></li>
+                            <li onClick={login}>Login</li>
                             <li onClick={logout}>Logout</li>
 
                         </div>
