@@ -7,9 +7,9 @@ import { useContext } from "react"
 import AuthContext from "../stores/authContext"
 
 export default function TopBar (){
-    const user = useContext(AuthContext)
+    const {user, login, logout} = useContext(AuthContext)
     console.log(user)
-    
+
     const NAV_ELEMENTS = [
         {name: "Home", href: "/"},
         {name: "Offers", href: "/offers"},
@@ -26,9 +26,12 @@ export default function TopBar (){
                         <Image src={logo} alt="Gleanathon" width={240} height={48} className={styles.logo_2}></Image>
                         </Link>
                         <div className={styles.element_container}>
-                            {NAV_ELEMENTS.map((x: {name: string, href: string}, i: number) => (
-                                <NavElement {...x} key={i}></NavElement>
-                            ))}
+                            <NavElement name={NAV_ELEMENTS[0].name} href={NAV_ELEMENTS[0].href}></NavElement>
+                            <NavElement name={NAV_ELEMENTS[1].name} href={NAV_ELEMENTS[1].href}></NavElement>
+                            <NavElement name={NAV_ELEMENTS[2].name} href={NAV_ELEMENTS[2].href}></NavElement>
+                            <li onClick={login}><NavElement name={NAV_ELEMENTS[3].name} href={NAV_ELEMENTS[3].href}></NavElement></li>
+                            <li onClick={logout}>Logout</li>
+
                         </div>
                     </nav>
                 </header>
