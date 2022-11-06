@@ -10,6 +10,8 @@ import people from "../images/people.png"
 import {MDBRange} from 'mdb-react-ui-kit';
 import {useState} from 'react'
 import Footer from "../components/footer"
+import Link from "next/link"
+
 
 interface OfferProps {
     farm_name: string;
@@ -22,10 +24,13 @@ interface OfferProps {
     dateRange: {min: Date, max: Date};
 }
 
+
 const submit = async (event:any) => {
     event.preventDefault();
     alert(event.target.range.value)
 };
+
+const USER = "farmer"
 
 
 function Offer(props : OfferProps) {
@@ -58,7 +63,6 @@ function Offer(props : OfferProps) {
         </div>
     );
 }
-
 
 
 function Collapsible(props: OfferProps){
@@ -94,6 +98,15 @@ function Collapsible(props: OfferProps){
             <script type="text/javascript" src="/static/script.js"></script>
         </div> 
         );
+}
+
+function AddEvent () {
+    return(
+        <div className={styles.add_event_container}>
+            <Link className={styles.add_event} href="/create">+</Link>
+        </div>
+    )
+    
 }
 
 
@@ -190,6 +203,7 @@ export default function Events() {
                     ))}
                 </div>
             </div>
+            {USER === "farmer" ? <AddEvent></AddEvent> : <></>}
             <Footer></Footer>
         </div>
 

@@ -194,3 +194,28 @@ z-index: 1;
     background: #298273; /* Green background */
     cursor: pointer; /* Cursor on hover */
   }
+
+.add_event_container {
+    position: fixed;
+    bottom: 5rem;
+    right: 5rem;
+    z-index: 10;
+    
+    align-items: center;
+    text-align: center;
+}
+
+.add_event {
+    font-size: 4.5rem;
+    color: white !important;
+    background-color: #298273;
+    padding: 0 2rem 1rem;
+    border-radius: 10rem;
+    transition: all 0.1s ease-in-out;
+}
+
+.add_event:hover {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    background-color: black;
+}

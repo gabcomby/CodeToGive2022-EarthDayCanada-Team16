@@ -56,7 +56,8 @@
     font-size: 22px; 
     position: relative;
     transition: all 0.3s ease-in-out;
-    margin: 0 15px
+    margin: 0 15px;
+    color: black !important;
     }
 
     .nav__link:hover{
