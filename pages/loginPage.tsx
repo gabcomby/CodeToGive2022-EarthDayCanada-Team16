@@ -69,7 +69,7 @@ export default function Home() {
           </div>
         </div>
         
-        //Code du sélectionneur de type de compte
+        {/*Code du sélectionneur de type de compte*/}
         <div style={{display:'flex', alignItems:'center', justifyContent:'center', margin:15, fontSize:20}}>Please select what type of account you&quot;d like to create:</div>
         <div style={{display:'flex', alignItems:'center', justifyContent:'center', margin:15}}>
           <Listbox value={selectedPerson} onChange={setSelectedPerson}>
@@ -88,7 +88,7 @@ export default function Home() {
           </Listbox>
         </div>
 
-        //Code qui affiche le form dépendamment du type de compte que l'on crée
+        {/*Code qui affiche le form dépendamment du type de compte que l'on crée*/}
         {selectedPerson.name == 'Farmer' &&
           <div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
             <form style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}} onSubmit={submitContact}>
@@ -268,7 +268,7 @@ export default function Home() {
         </div>
         }
 
-        //Code du bouton pour se déconnecter
+        {/*Code du bouton pour se déconnecter*/}
         <div style={{display:'flex', flexDirection:'column', margin:15}}>
           <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
             <button  style={{alignItems:'center', justifyContent:'center'}} type="button" onClick={() => auth.signOut()}> Disconnect </button>
