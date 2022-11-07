@@ -45,6 +45,7 @@ export default function Login(props: {gleaners: string[], farmers: string[], org
     //TUTORIEL : https://daily-dev-tips.com/posts/using-forms-in-nextjs/
     
     const submitContact = async (event:any) => {
+      let type = "None"
       if (selectedPerson.name === "Farmer") {
         let post = {
             email: EMAIL, name, address, phoneNumber
@@ -90,7 +91,7 @@ export default function Login(props: {gleaners: string[], farmers: string[], org
         <Head>
             <title>Gleanathon</title>
         </Head>
-        <TopBar></TopBar>
+        <TopBar {...{type}}></TopBar>
       </div>
     <SignedIn>
       <div>
