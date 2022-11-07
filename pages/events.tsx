@@ -11,6 +11,7 @@ import {MDBRange} from 'mdb-react-ui-kit';
 import {useState} from 'react'
 import Footer from "../components/footer"
 import Link from "next/link"
+import clientPromise from "../lib/mongodb";
 
 
 interface OfferProps {
@@ -21,8 +22,24 @@ interface OfferProps {
     distance: string;
     description: string;
     address: string;
-    dateRange: {min: Date, max: Date};
+    dateRange: {min: String, max: String};
 }
+
+interface EventProps {
+    name: string;
+    vegetable: string;
+    vegetableEmoji: string;
+    capacity_min: number;
+    capacity_max: number;
+    distance: Number;
+    distanceUnit: String;
+    description: string;
+    address: string;
+    date_min: String;
+    date_max: String;
+}
+
+
 
 
 const submit = async (event:any) => {
@@ -33,11 +50,11 @@ const submit = async (event:any) => {
 const USER = "farmer"
 
 
-function Offer(props : OfferProps) {
+function Offer(props : EventProps) {
     return (
         <div className={styles.offer}>
-            <h1>{props.farm_name}</h1>
-            <h5>{props.distance} from you</h5>
+            <h1>{props.name}</h1>
+            <h5>{props.distance} {props.distanceUnit} from you</h5>
             
             <div className={styles.row}>
                 <div className={styles.col}>
@@ -50,11 +67,11 @@ function Offer(props : OfferProps) {
                 </div>
                 <div className={styles.col}>
                     <Image src={clock} alt="" width={50}></Image>
-                    <h4 className={styles.address}>{props.dateRange.min.toJSON().slice(0, 10)} - {props.dateRange.max.toJSON().slice(0, 10)}</h4>
+                    <h4 className={styles.address}>{props.date_min.slice(0, 10)} - {props.date_max.slice(0, 10)}</h4>
                 </div>
                 <div className={styles.col}>
                     <Image src={people} alt="" width={50}></Image>
-                    <h4 className={styles.address}>{props.capacity.min} - {props.capacity.max}</h4>
+                    <h4 className={styles.address}>{props.capacity_min} - {props.capacity_max}</h4>
                 </div>
             </div>
             <div className={styles.third_row}>
@@ -65,7 +82,7 @@ function Offer(props : OfferProps) {
 }
 
 
-function Collapsible(props: OfferProps){
+function Collapsible(props: EventProps){
     const { getCollapseProps, getToggleProps, isExpanded } = useCollapse();
 
     const [value, setValue] = useState(0);
@@ -84,7 +101,7 @@ function Collapsible(props: OfferProps){
                             
                                 <div className={styles.slidecontainer}>
                                     <label>Group size: </label>
-                                    <input type="number" id="range" name="okok" min="0" max={props.capacity.max.toString()}></input>
+                                    <input type="number" id="range" name="okok" min="0" max={props.capacity_max.toString()}></input>
                                 </div>
                                 <button type="submit" className={styles.submit} id="output">Available for gleaning</button>
                             </div>
@@ -110,7 +127,11 @@ function AddEvent () {
 }
 
 
-export default function Events() {
+
+
+
+export default function Events(events: {events: EventProps[]}) {
+    console.log(events)
     //Table of randomly generated offers
     const offers = [
         {
@@ -198,9 +219,10 @@ export default function Events() {
                     <h4 className={styles.dashboard_title}> Offers Near You</h4>
                 </div>
                 <div className={styles.dashboard_content}>
-                    {offers.map((x: OfferProps, i: number) => (
+                    {events.events.length > 0 ?
+                    events.events.map((x: EventProps, i: number) => (
                         <Offer {...x} key={i}></Offer>
-                    ))}
+                    )) : <></>}
                 </div>
             </div>
             {USER === "farmer" ? <AddEvent></AddEvent> : <></>}
@@ -208,4 +230,22 @@ export default function Events() {
         </div>
 
     );
+}
+
+export async function getServerSideProps() {
+    try {
+        const client = await clientPromise;
+        const db = client.db("test");
+
+        const events = await db
+            .collection("eventtts")
+            .find({})
+            .limit(10)
+            .toArray()
+        return {
+            props: { events: JSON.parse(JSON.stringify(events)) },
+        };
+    } catch (e) {
+        console.error(e);
+    }
 }
