@@ -22,7 +22,7 @@ interface OfferProps {
     description: string;
     address: string;
     dateRange: {min: Date, max: Date};
-    requests: [{groupName: string, groupSize: string, profileUrl: string}]
+    requests: {groupName: string, groupSize: string, profileUrl: string}[]
 }
 
 
@@ -75,7 +75,14 @@ function Collapsible(props: OfferProps){
                 <div className={styles.content}>
                     <div className={styles.description}>{props.description}</div>
                     <div className={styles.request}>
-                        
+                        {props.requests.map((x: {groupName: string, groupSize: string, profileUrl: string}, i: number) => (
+                            <div className={styles.col}>
+                                <Link href={x.profileUrl} className={styles.request_element2}><h4>{x.groupName}</h4></Link>
+                                <h4 className={styles.request_element}>Group size: {x.groupSize}</h4>
+                                <button className={styles.accept}>O</button>
+                                <button className={styles.refuse}>X</button>
+                            </div>
+                        ))}
                     </div>
                 </div>
                 <div className={styles.header} {...getToggleProps()}>
