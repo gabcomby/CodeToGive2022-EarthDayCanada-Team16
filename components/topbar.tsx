@@ -13,7 +13,8 @@ export default function TopBar(props: {type: string}) {
 
     console.log(props.type)
     const { signOut } = useClerk()
-  
+    
+    const router = useRouter()
 
     const NAV_ELEMENTS = [
         {name: "Home", href: "/"},
@@ -21,6 +22,11 @@ export default function TopBar(props: {type: string}) {
         {name: "Events", href: "/events"},
         {name: "Login/Sign Up", href: "/authpage"}
     ]
+
+    const handleSignOut = async() =>{
+        signOut()
+        router.push('/')
+      }
 
     return (
         <>
@@ -43,7 +49,7 @@ export default function TopBar(props: {type: string}) {
                             ) : <></>}
 
                             <SignedIn>
-                                <a className={styles.nav__link} onClick={() => signOut()}>Logout</a>
+                                <a className={styles.nav__link} onClick={() => handleSignOut()}>Logout</a>
                             </SignedIn>
 
                             
