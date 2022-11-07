@@ -5,10 +5,11 @@ import styles from "../styles/nav-bar.module.css"
 import logo from "../images/image.png"
 import { useContext } from "react"
 import AuthContext from "../stores/authContext"
+import { useRouter } from "next/router";
 
 export default function TopBar (){
     const {user, login, logout} = useContext(AuthContext)
-    console.log(user)
+    const router = useRouter();
 
     const NAV_ELEMENTS = [
         {name: "Home", href: "/"},
@@ -16,6 +17,11 @@ export default function TopBar (){
         {name: "Events", href: "/events"},
         {name: "Login/Sign Up", href: "/authpage"}
     ]
+
+    const handleSignOut = async() =>{
+        logout()
+        router.push('/')
+      }
 
     return (
         <>
@@ -30,8 +36,8 @@ export default function TopBar (){
                             {user && <NavElement name={NAV_ELEMENTS[1].name} href={NAV_ELEMENTS[1].href}></NavElement>}
                             {user && <NavElement name={NAV_ELEMENTS[2].name} href={NAV_ELEMENTS[2].href}></NavElement>}
                             {user && <a className={styles.nav__link}>{user['email']}</a>}
-                            <a onClick={login} className={styles.nav__link}>Login</a>
-                            {user && <a className={styles.nav__link} onClick={logout}>Logout</a>}
+                            {!user && <a onClick={login} className={styles.nav__link}>Login</a>}
+                            {user && <a className={styles.nav__link} onClick={handleSignOut}>Logout</a>}
 
                         </div>
                     </nav>
