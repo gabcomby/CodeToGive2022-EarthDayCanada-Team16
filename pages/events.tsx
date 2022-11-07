@@ -123,7 +123,7 @@ function Collapsible(props : {props: {p: EventProps, type: string}}){
         );
 }
 
-function AddEvent (props: {events: EventProps[], gleaners: string[], farmers: string[], orgs: string[]}) {
+function AddEvent () {
     return(
         <div className={styles.add_event_container}>
             <Link className={styles.add_event} href="/new_event">+</Link>
@@ -178,7 +178,7 @@ export default function Events(props: {events: EventProps[], gleaners: string[],
                         )) : <></>}
                     </div>
                 </div>
-                {type === "Farmers" ? <AddEvent {...{type}}></AddEvent> : <></>}
+                {type === "Farmers" ? <AddEvent></AddEvent> : <></>}
                 <Footer></Footer>
             </div>
     
