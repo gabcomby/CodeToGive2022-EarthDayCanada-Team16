@@ -112,7 +112,6 @@ function Collapsible(props: EventProps){
                 {isExpanded ? <button className={styles.expand_offer_button}>-</button> : <></>}
             </div>
             </div>
-            <script type="text/javascript" src="/static/script.js" async></script>
         </div> 
         );
 }
