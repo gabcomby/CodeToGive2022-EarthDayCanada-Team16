@@ -75,7 +75,7 @@ function Collapsible(props: OfferProps){
                 <div className={styles.content}>
                     <div className={styles.description}>{props.description}</div>
                     <div className={styles.request}>
-                        {props.requests.map((x: {groupName: string, groupSize: string, profileUrl: string}, i: number) => (
+                        {props.requests.map((x: {groupName: string, groupSize: string, profileUrl: string}) => (
                             <div className={styles.col}>
                                 <Link href={x.profileUrl} className={styles.request_element2}><h4>{x.groupName}</h4></Link>
                                 <h4 className={styles.request_element}>Group size: {x.groupSize}</h4>
@@ -89,7 +89,6 @@ function Collapsible(props: OfferProps){
                 {isExpanded ? <button className={styles.expand_offer_button}>-</button> : <></>}
             </div>
             </div>
-            <script type="text/javascript" src="/static/script.js"></script>
         </div> 
         );
 }
