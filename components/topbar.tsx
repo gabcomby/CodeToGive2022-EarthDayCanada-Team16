@@ -51,19 +51,6 @@ export default function TopBar(props: {type: string}) {
                             <SignedIn>
                                 <a className={styles.nav__link} onClick={() => handleSignOut()}>Logout</a>
                             </SignedIn>
-
-                            
-                            
-                            
-
-
-                            {/* <NavElement name={NAV_ELEMENTS[0].name} href={NAV_ELEMENTS[0].href}></NavElement>
-                            {user && <NavElement name={NAV_ELEMENTS[1].name} href={NAV_ELEMENTS[1].href}></NavElement>}
-                            {user && <NavElement name={NAV_ELEMENTS[2].name} href={NAV_ELEMENTS[2].href}></NavElement>}
-                            {user && <Link href="/profile" className={styles.nav__link}>{user['email']}</Link>}
-                            {!user && <a onClick={login} className={styles.nav__link}>Login</a>}
-                            {user && <a className={styles.nav__link} onClick={handleSignOut}>Logout</a>} */}
-
                         </div>
                     </nav>
                 </header>
