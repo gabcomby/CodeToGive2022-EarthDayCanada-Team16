@@ -148,10 +148,6 @@ export default function Events(props: {events: EventProps[], gleaners: string[],
     } else if (props.orgs.includes(EMAIL || "")) {
         type = "Orgs"
     }
-    
-    //Table of randomly generated offers
-    
-    
 
     if(type == "Gleaners" || type === "Farmers") {
         return (
