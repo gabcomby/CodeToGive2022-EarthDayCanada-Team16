@@ -8,7 +8,8 @@ export default function Home() {
     });
 
     if (!isLoaded) return <div>Loading...</div>;
-    return <div className='map-container'>hello</div>
+
+    return (<GoogleMap zoom={10} center={{lat:44,lng:-80}} mapContainerClassName='map-container'></GoogleMap>);
 }
 
 function Map() {
