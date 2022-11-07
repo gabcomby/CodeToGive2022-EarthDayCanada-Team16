@@ -1,34 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Code To Give 2022
+This project was developed over a weekend by a team of 6 programmers competing in the 2022 Code To Give hackaton organized by Morgan Stanley.
+Team members :
+- Maxime Gaudreau
+- Simon Désormeaux
+- Gabriel Comby
+- Maxime Savy
+- Charles-Antoine Vézina
+- Antoine
 
-## Getting Started
+## Objective
+The objective of this project is to connect farmers, gleaners and food banks in order to help coordonate their effort to reduce food waste.
 
-First, run the development server:
+## Features
+- User authentication : Unique accounts secured by the Clerk API
+- Account creation : create different type of accounts with special informations asked depending on your status (gleaner/farmer/food bank)
+- Events : Create new events (farmers) or register a grouo to participate in an event (gleaners)
+- Offers : See what type & quantity of food will be available for pickup on different dates (food banks)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Technologies used
+- Next.JS
+- TypeScript
+- Clerk API
+- Netlify
+- MongoDB
+- GitHub
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## How to run this code
+After cloning the project, run ```npm install``` to download all required dependencies. Once dependencies are installed, run ```npm run dev``` and then open the URL http://localhost:3000 to see the site.
