@@ -18,13 +18,14 @@ const people = [
 
 const EMAIL = "maxgaudreau9@gmail.com"
 export default function Login(props: {unregistered: boolean}) {
+  let type = "None"
       return (
     <>
       <div>
         <Head>
             <title>Gleanathon</title>
         </Head>
-        <TopBar></TopBar>
+        <TopBar {...{type}}></TopBar>
         <SignIn></SignIn>
       </div>
     </>)
