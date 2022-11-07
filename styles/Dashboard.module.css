@@ -1,6 +1,7 @@
 .dashboard{
+z-index: 1;
   background-color: rgb(255, 255, 255);
-  border: 5px solid rgb(100, 100, 100);
+  /* border: 5px solid rgb(100, 100, 100); */
   border-radius: 5px;
   margin-left: 7.5%;
   margin-right: 7.5%;
@@ -14,19 +15,21 @@
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
+   font-family: "Century gothic";
 }
 
 .dashboard_header {
+    margin: 3rem auto;
     width: 100%;
-    background-color: #ccc;
+    background-color: #fff;
     height: 75px;
-    border-bottom: 2.5px solid rgb(100, 100, 100);
+    /* border-bottom: 2.5px solid rgb(100, 100, 100); */
     display: flex;
 }
 
 .dashboard_content {
     width: 100%;
-    background-color: #ccc;
+    background-color: #fff;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -37,11 +40,234 @@
 .dashboard_title {
     color: black;
     margin: auto;
-    font-size: 30px;
+    font-size: 3rem;
 }
 
 .offer {
     width:100%;
-    border-bottom: 2.5px solid rgb(100, 100, 100);
-    border-top: 2.5px solid rgb(100, 100, 100);
+    border-bottom: 2.5px solid #298273;
+    border-top: 2.5px solid #298273;
+    margin-top: 3rem;
+}
+
+.offer h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.offer h5 {
+    font-size: 1rem;
+    text-align: center;
+    margin: 0 auto 2rem;
+}
+
+/*offer_first_*/.col .row {
+    display: flex;
+    display: row;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.col {
+    margin: 1rem auto;
+    display: flex;
+    display: column;
+    align-items: center;
+}
+
+.offer_third_row {
+    display: flex;
+}
+
+.offer_distance {
+    width: 50%;
+}
+
+.offer_farm_name {
+    width: 50%;
+}
+
+.expand_offer_button {
+    width: 30px;
+    height: 30px;
+    font-size: large;
+    border-right: 0px;
+    border-bottom: 0px;
+    border-top: 2.5px solid #298273;
+    border-left: 2.5px solid #298273;
+    color: #298273;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 15px;
+}
+
+.offer_quantity {
+    font-size: 2rem;
+    margin-right: 2.5rem;
+    margin-left: 1rem;
+}
+
+.veg_emoji {
+    font-size: 38px;
+}
+
+.address {
+    font-size: 1.5rem;
+    margin-left: 1rem
+}
+
+.submit {
+    margin-left: 1rem;
+    min-width: 10rem;
+}
+
+.collapsible .content {
+    /* border-top: 5px solid rgb(100, 100, 100); */
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+}
+.collapsible .header {
+    display: flex;
+    justify-content: right;
+    background-color: #fff;
+}
+.collapsible button {
+    border-color: #298273;
+}
+
+.description {
+    margin: 30px;
+}
+
+.slidecontainer {
+    width: 80%; /* Width of the outside container */
+  }
+
+.inputs form .col2 {
+    text-align: right;
+    align-items: right;
+    width: 100%;
+    display: flex;
+
+}
+
+.inputs form .col2 label {
+    margin-right: 1rem;
+}
+  
+  /* The slider itself */
+  .slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 25px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    height: 15px;
+    border-radius: 5px; 
+  }
+  
+  /* Mouse-over effects */
+  .slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+  }
+  
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #298273; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #298273; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
+
+.add_event_container {
+    position: fixed;
+    bottom: 5rem;
+    right: 5rem;
+    z-index: 10;
+    
+    align-items: center;
+    text-align: center;
+}
+
+.add_event {
+    font-size: 4.5rem;
+    color: white !important;
+    background-color: #298273;
+    padding: 0 2rem 1rem;
+    border-radius: 10rem;
+    transition: all 0.1s ease-in-out;
+}
+
+.add_event:hover {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    background-color: black;
+}
+
+
+    
+
+
+.request_element {
+    width: 35%;
+}
+
+.request .col {
+    width: 100%;
+}
+
+.request_element2 {
+    width: 35%;
+    color: black !important;
+    padding: 1px;
+    transition: all 0.1s ease-in-out;
+}
+
+.request_element2:hover {
+    color: #298273 !important;
+}
+
+.request button {
+    margin: 0 2rem;
+    background-color: inherit;
+    border: 2px solid #298273;
+    border-radius: 2rem;
+    color: #298273;
+    font-weight: bold;
+    transition: all 0.1s ease-in-out;
+}
+
+.request button:hover {
+    color: black !important;
+    border-color: black !important;
+}
+
+.accept {
+    padding: 6px 11px 6px 11px;
+}
+
+.accept:hover {
+
+}
+
+.refuse {
+    padding: 5px 13px 7px;
+    color: red !important;
+    border-color: red !important;
 }

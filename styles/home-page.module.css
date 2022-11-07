@@ -90,7 +90,12 @@
 
 .why_container .why_footer h5 {
     font-size: 1.5rem;
-    margin: 10px 0;margin-left: 0;
+    margin: 10px 0 10px;
+    margin-left: 0;
+}
+
+.why_container .why_footer {
+    margin-top: 8rem;
 }
 
 .counter_container h5 {

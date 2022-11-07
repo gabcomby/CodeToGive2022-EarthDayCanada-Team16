@@ -2,4 +2,5 @@
     margin-top: 100px;
     min-height: 500px;
     background-color: #393939;
+    z-index: 20;
 }
