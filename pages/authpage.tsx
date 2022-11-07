@@ -33,7 +33,6 @@ export default function AuthPage() {
                 <Head>
                     <title>Gleanathon</title>
                 </Head>
-                <TopBar></TopBar>
         </div>
         <div style={{display:'flex', flexDirection:'column'}}>
             <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
