@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.6.0-next.2",
     "@headlessui/react": "^1.7.4",
     "@react-google-maps/api": "^2.16.0",
     "@types/node": "18.11.9",

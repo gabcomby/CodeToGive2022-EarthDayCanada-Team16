@@ -1,4 +1,10 @@
 .form_container {
-    margin-top: 4rem;
+    margin: 3rem auto;
+    width: 30%;
+    align-items: center;
+}
+
+.form_container input {
+    width: 100%;
 }
 
