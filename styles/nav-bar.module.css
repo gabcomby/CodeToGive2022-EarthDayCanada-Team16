@@ -84,3 +84,7 @@
     .offset {
         height: 70px;
     }
+
+    .big {
+        font-size: 5rem;
+    }

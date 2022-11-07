@@ -7,6 +7,9 @@ import {useState} from 'react'
 import { Listbox } from '@headlessui/react'
 import Head from 'next/head';
 import TopBar from '../components/topbar';
+import Footer from '../components/footer';
+import clientPromise from "../lib/mongodb";
+import { ClerkProvider, SignedIn , useUser, useClerk, SignIn, SignedOut} from '@clerk/clerk-react';
 
 const people = [
   { id: 1, name: 'Farmer', unavailable: false },
@@ -14,55 +17,85 @@ const people = [
   { id: 3, name: 'NPO', unavailable: false },
 ]
 
-export default function Home() {
-    //Obligatoire pour l'authentication
-    initFirebase();
-    const auth = getAuth();
-    const[user, loading] = useAuthState(auth);
-    const currentUser = auth.currentUser;
 
-    //Utilisé pour se déplacer de page en page
-    const router = useRouter();
+export default function Login(props: {gleaners: string[], farmers: string[], orgs: string[]}) {
+    const { isSignedIn, user } = useUser()
+    const EMAIL = user ? user.primaryEmailAddressId : ""
+    let type = "None"
+    if (props.gleaners.includes(EMAIL || "")) {
+        type = "Gleaners"
+    } else if (props.farmers.includes(EMAIL || "")) {
+        type = "Farmers"
+    } else if (props.orgs.includes(EMAIL || "")) {
+        type = "Orgs"
+    }
+
 
     //Utile pour le sélectionneur de type de compte
     const [selectedPerson, setSelectedPerson] = useState(people[0])
+    const [name, setname] = useState("")
+    const [address, setaddress] = useState("")
+    const [phoneNumber, setphoneNumber] = useState("")
+    const [fullName, setfullName] = useState("")
+    const [maxRange, setmaxRange] = useState("")
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
-    //Si le user n'est pas connecté, on le ramène automatiquement à la page de connexion
-    if(!user) {
-        router.push('./');
-    }
-
+    
     //CETTE FONCTION EST CELLE QUI EST APPELÉE LORSQUE L'ON SUBMIT LE FORM
     //TODO : PRENDRE LES INFOS QUI SONT SUBMIT ET LES STORE DANS UN JSON POUR LA DATABASE
     //TUTORIEL : https://daily-dev-tips.com/posts/using-forms-in-nextjs/
+    
     const submitContact = async (event:any) => {
-      event.preventDefault();
-      // alert(`So your name is ${event.target.farmName.value}?`);
+      if (selectedPerson.name === "Farmer") {
+        let post = {
+            email: EMAIL, name, address, phoneNumber
+        }
+
+        console.log(post)
+
+        let response = await fetch('/api/farmer', {
+            method: 'POST',
+            body: JSON.stringify(post),
+        });
+      } else if (selectedPerson.name === "Gleaner") {
+        let post = {
+            email: EMAIL, fullName, address, phoneNumber, maxRange
+        }
+
+        console.log(post)
+
+        let response = await fetch('/api/gleaner', {
+            method: 'POST',
+            body: JSON.stringify(post),
+        });
+      } else if (selectedPerson.name === "NPO") {
+        let post = {
+            email: EMAIL, name, address, phoneNumber, maxRange
+        }
+
+        console.log(post)
+
+        let response = await fetch('/api/org', {
+            method: 'POST',
+            body: JSON.stringify(post),
+        });
+      }
     };
 
-    if (currentUser !== null) {
-      // The user object has basic properties such as display name, email, etc.
-      const displayName = currentUser.displayName;
-      const email = currentUser.email;
-      const photoURL = currentUser.photoURL;
-      const emailVerified = currentUser.emailVerified;
+    if (type === "None") {
 
       return (
     <>
-      <div>
+    
+    <div>
         <Head>
             <title>Gleanathon</title>
         </Head>
         <TopBar></TopBar>
       </div>
+    <SignedIn>
       <div>
         <div style={{display:'flex', flexDirection:'column'}}>
           <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
-            <h1>Hello {displayName}, it&quot;s good to see you!</h1>
           </div>
           <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
             <h2>Please answer the following questions to start using this service.</h2>
@@ -95,31 +128,31 @@ export default function Home() {
               <div style={{fontSize:20}} >Location & Contact Information</div>
               <div style={{display:'flex', flexDirection:'column', alignItems:'center', margin:15}}>
                 <label>Farm Name :</label>
-                <input
+                <input onChange={(e) => setname(e.target.value)}
                 className="mb-4 border-b-2"
                 id="farmName"
                 name="name"
                 type="text"
                 required
                 />
-                <label>Farm Adress :</label>
-                <input
+                <label>Farm Address :</label>
+                <input onChange={(e) => setaddress(e.target.value)}
                 className="mb-4 border-b-2"
-                id="farmAdress"
+                id="farmAddress"
                 name="name"
                 type="text"
                 required
                 />
-                <label>Email :</label>
+                {/* <label>Email :</label>
                 <input
                 className="mb-4 border-b-2"
                 id="email"
                 name="name"
                 type="email"
                 required
-                />
+                /> */}
                 <label>Phone Number :</label>
-                <input
+                <input onChange={(e) => setphoneNumber(e.target.value)}
                 className="mb-4 border-b-2"
                 id="phoneNumber"
                 name="name"
@@ -144,31 +177,23 @@ export default function Home() {
               <div style={{fontSize:20}} >Location & Contact Information</div>
               <div style={{display:'flex', flexDirection:'column', alignItems:'center', margin:15}}>
                 <label>First & Last Name :</label>
-                <input
+                <input onChange={(e) => setfullName(e.target.value)}
                 className="mb-4 border-b-2"
                 id="fullName"
                 name="name"
                 type="text"
                 required
                 />
-                <label>Full Adress :</label>
-                <input
+                <label>Full Address :</label>
+                <input onChange={(e) => setaddress(e.target.value)}
                 className="mb-4 border-b-2"
-                id="fullAdress"
+                id="Address"
                 name="name"
                 type="text"
                 required
                 />
-                <label>Email :</label>
-                <input
-                className="mb-4 border-b-2"
-                id="email"
-                name="name"
-                type="email"
-                required
-                />
                 <label>Phone Number :</label>
-                <input
+                <input onChange={(e) => setphoneNumber(e.target.value)}
                 className="mb-4 border-b-2"
                 id="phoneNumber"
                 name="name"
@@ -179,20 +204,22 @@ export default function Home() {
 
               <div style={{fontSize:20}} >Work Groups & Range</div>
               <div style={{display:'flex', flexDirection:'column', alignItems:'center', margin:15}}>
-                <label>Number of people in your group :</label>
+                {/* <label>Number of people in your group :</label>
                 <input
                 className="mb-4 border-b-2"
                 id="groupSize"
                 name="name"
                 type="number"
                 required
-                />
+                /> */}
                 <label>Maximum range for a job (in KM) :</label>
-                <input
+                <input onChange={(e) => setmaxRange(e.target.value)}
                 className="mb-4 border-b-2"
                 id="maxRange"
                 name="name"
-                type="number "
+                min="0"
+                max="9999"
+                type="number"
                 required
                 />
               </div>
@@ -213,31 +240,23 @@ export default function Home() {
             <div style={{fontSize:20}} >Location & Contact Information</div>
             <div style={{display:'flex', flexDirection:'column', alignItems:'center', margin:15}}>
               <label>Food Bank Name :</label>
-              <input
+              <input onChange={(e) => setname(e.target.value)}
               className="mb-4 border-b-2"
               id="foodBankName"
               name="name"
               type="text"
               required
               />
-              <label>Full Adress :</label>
-              <input
+              <label>Full Address :</label>
+              <input onChange={(e) => setaddress(e.target.value)}
               className="mb-4 border-b-2"
-              id="farmAdress"
+              id="Address"
               name="name"
               type="text"
               required
               />
-              <label>Email :</label>
-              <input
-              className="mb-4 border-b-2"
-              id="email"
-              name="name"
-              type="email"
-              required
-              />
               <label>Phone Number :</label>
-              <input
+              <input onChange={(e) => setphoneNumber(e.target.value)}
               className="mb-4 border-b-2"
               id="phoneNumber"
               name="name"
@@ -249,11 +268,13 @@ export default function Home() {
             <div style={{fontSize:20}} >Job Range</div>
             <div style={{display:'flex', flexDirection:'column', alignItems:'center', margin:15}}>
               <label>Maximum range for a job (KM) :</label>
-              <input
+              <input onChange={(e) => setmaxRange(e.target.value)}
               className="mb-4 border-b-2"
               id="maxRange"
               name="name"
-              type="number "
+              min="0"
+              max="9999"
+              type="number"
               required
               />
             </div>
@@ -276,7 +297,53 @@ export default function Home() {
         </div>
 
       </div>
+    </SignedIn>
+
+    <SignedOut>
+        <SignIn></SignIn>
+    </SignedOut>
+      
     </>
       )
+    } else return (
+        <>
+            <Head>Gleanathon</Head>
+            <TopBar {...{type}}></TopBar>
+            <div id="done_container">
+                <h1>Your account has been created</h1>
+                <h1>Now, enjoy gleaning</h1>
+            </div>
+            
+        </>
+
+    )
+}
+
+export async function getServerSideProps() {
+    
+    const EMAIL = ""
+    try {
+        const client = await clientPromise;
+        const db = client.db("test");
+        const farmers = await db
+            .collection("farmers")
+            .find({})
+            .toArray()
+
+        const gleaners = await db
+            .collection("gleaners")
+            .find({})
+            .toArray()
+
+        const orgs = await db
+            .collection("orgs")
+            .find({})
+            .toArray()
+
+        return {
+            props: { gleaners: JSON.parse(JSON.stringify(gleaners)).map((x: any) => x.email), farmers: JSON.parse(JSON.stringify(farmers)).map((x: any) => x.email), orgs: JSON.parse(JSON.stringify(orgs)).map((x: any) => x.email) },
+        };
+    } catch (e) {
+        console.error(e);
     }
 }

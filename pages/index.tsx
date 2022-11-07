@@ -6,11 +6,24 @@ import Footer from '../components/footer';
 import Image from "next/image"
 import styles from "../styles/home-page.module.css"
 import logo from "../images/GLEANATHON_green_600px.png"
+import { ClerkProvider, SignedIn , useUser, useClerk, SignIn, SignedOut} from '@clerk/clerk-react';
+import clientPromise from "../lib/mongodb";
 
 
-export default function HomePage() {
+export default function HomePage(props: {gleaners: string[], farmers: string[], orgs: string[]}) {
     const SCORE = 723456
     const OBJECTIVE = 1000000
+
+    const { isSignedIn, user } = useUser()
+    const EMAIL = user ? user.primaryEmailAddressId : ""
+    let type = "None"
+    if (props.gleaners.includes(EMAIL || "")) {
+        type = "Gleaners"
+    } else if (props.farmers.includes(EMAIL || "")) {
+        type = "Farmers"
+    } else if (props.orgs.includes(EMAIL || "")) {
+        type = "Orgs"
+    } 
 
     return (
     <>
@@ -18,7 +31,7 @@ export default function HomePage() {
             <Head>
                 <title>Gleanathon</title>
             </Head>
-            <TopBar></TopBar>
+            <TopBar {...{type}}></TopBar>
 
             <div className={styles.back}>
                 <div className={styles.title_logo_container}>
@@ -73,4 +86,39 @@ export default function HomePage() {
         <Footer></Footer>
     </>
     );
+}
+
+
+export async function getServerSideProps() {
+    
+    const EMAIL = ""
+    try {
+        const client = await clientPromise;
+        const db = client.db("test");
+        const farmers = await db
+            .collection("farmers")
+            .find({})
+            .toArray()
+
+        const gleaners = await db
+            .collection("gleaners")
+            .find({})
+            .toArray()
+
+        const orgs = await db
+            .collection("orgs")
+            .find({})
+            .toArray()
+
+        const events = await db
+            .collection("eventtts")
+            .find({})
+            .limit(10)
+            .toArray()
+        return {
+            props: { events: JSON.parse(JSON.stringify(events)), gleaners: JSON.parse(JSON.stringify(gleaners)).map((x: any) => x.email), farmers: JSON.parse(JSON.stringify(farmers)).map((x: any) => x.email), orgs: JSON.parse(JSON.stringify(orgs)).map((x: any) => x.email) },
+        };
+    } catch (e) {
+        console.error(e);
+    }
 }
