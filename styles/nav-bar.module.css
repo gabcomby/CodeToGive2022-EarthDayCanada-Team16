@@ -4,7 +4,7 @@
     margin: 0;
     padding: 0;
     padding-bottom: 30px;
-    outline: none;
+    outline: none; 
     box-sizing: border-box;
     font-family: 'Work Sans', sans-serif;
     position: fixed;
@@ -58,6 +58,7 @@
     transition: all 0.3s ease-in-out;
     margin: 0 15px;
     color: black !important;
+    cursor: pointer;
     }
 
     .nav__link:hover{
