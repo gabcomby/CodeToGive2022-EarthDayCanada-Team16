@@ -1,8 +1,5 @@
 import { MongoClient } from 'mongodb'
 
-if (!process.env.MONGODB_URI) {
-  throw new Error('Invalid/Missing environment variable: "MONGODB_URI"')
-}
 
 const uri = "mongodb+srv://admin:admin123@cluster0.vugzzzu.mongodb.net/?retryWrites=true&w=majority"
 const options = {}
