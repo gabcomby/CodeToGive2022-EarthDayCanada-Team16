@@ -26,4 +26,8 @@ The objective of this project is to connect farmers, gleaners and food banks in 
 - GitHub
 
 ## How to run this code
+Visit our [up-to-date website](https://gleanathon-morganstanley.netlify.app/)
+
+**OR**
+
 After cloning the project, run ```npm install``` to download all required dependencies. Once dependencies are installed, run ```npm run dev``` and then open the URL http://localhost:3000 to see the site.
