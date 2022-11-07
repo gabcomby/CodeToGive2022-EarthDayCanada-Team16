@@ -8,7 +8,7 @@ export default function testEvent(req, res) {
         name: 'Bear Creek Ranch',
         vegetable: 'Tomato',
         vegetableEmoji: "🍅",
-        capacity_min: 7, 
+        capacity_min: 7,
         capacity_max: 12,
         address: "2907 Township Rd, Bonnyville, T9N2J6, Alberta, Canada",
         distance: 5,

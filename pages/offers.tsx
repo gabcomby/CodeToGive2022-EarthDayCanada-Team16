@@ -52,8 +52,7 @@ function Offer(props : EventProps) {
     return (
         <div className={styles.offer}>
             <h1>{props.name}</h1>
-            <h5>{props.distance} {props.distanceUnit} from you</h5>
-            
+            <h5>{String(props.distance)} {props.distanceUnit} from you</h5>
             <div className={styles.row}>
                 <div className={styles.col}>
                     <h4 className={styles.veg_emoji}>{props.vegetableEmoji}</h4>
@@ -162,7 +161,7 @@ export default function Offers(props: {events: EventProps[], gleaners: string[],
 }
 
 export async function getServerSideProps() {
-    
+
     const EMAIL = ""
     try {
         const client = await clientPromise;

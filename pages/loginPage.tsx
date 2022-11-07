@@ -10,6 +10,7 @@ import TopBar from '../components/topbar';
 import Footer from '../components/footer';
 import clientPromise from "../lib/mongodb";
 import { ClerkProvider, SignedIn , useUser, useClerk, SignIn, SignedOut} from '@clerk/clerk-react';
+import AuthContext from "../stores/authContext";
 
 const people = [
   { id: 1, name: 'Farmer', unavailable: false },
@@ -293,7 +294,7 @@ export default function Login(props: {gleaners: string[], farmers: string[], org
         {/*Code du bouton pour se déconnecter*/}
         <div style={{display:'flex', flexDirection:'column', margin:15}}>
           <div style={{display:'flex', alignItems:'center', justifyContent:'center'}}>
-            <button  style={{alignItems:'center', justifyContent:'center'}} type="button" onClick={() => auth.signOut()}> Disconnect </button>
+            <button  style={{alignItems:'center', justifyContent:'center'}} type="button"> Disconnect </button>
           </div>
         </div>
 
@@ -303,7 +304,6 @@ export default function Login(props: {gleaners: string[], farmers: string[], org
     <SignedOut>
         <SignIn></SignIn>
     </SignedOut>
-      
     </>
       )
     } else return (

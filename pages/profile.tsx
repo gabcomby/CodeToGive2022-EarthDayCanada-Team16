@@ -161,7 +161,7 @@ export default function MyEvents(props: {events: EventProps[], gleaners: string[
                         <h4 className={styles.dashboard_title}> Your Offers</h4>
                     </div>
                     <div className={styles.dashboard_content}>
-                        {offers.map((x: OfferProps, i: number) => (
+                        {offers.map((x: EventProps, i: number) => (
                             <Offer {...x} key={i}></Offer>
                         ))}
                     </div>
