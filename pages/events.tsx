@@ -114,64 +114,64 @@ export default function Events() {
     //Table of randomly generated offers
     const offers = [
         {
-            farm_name: 'Farm 1',
+            farm_name: 'Bear Creek Ranch',
             vegetable: 'Tomato',
             vegetableEmoji: "🍅",
             capacity: {min: 8, max: 12},
-            address: "907 Amarantes St., H7Y 2G9, QC, CA",
+            address: "2907 Township Rd, Bonnyville, T9N2J6, AB, Canada",
             distance: '5km',
             dateRange: {min: new Date(2022, 11, 1), max: new Date(2022, 11, 5)},
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget aliquam lacinia, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nisl. Donec auctor, nisl eget aliquam lacinia, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nisl.'
+            description: 'Looking for a group of cool people willing to give their day away to gather some tomatoes for the greater cause!'
         },
         {
-            farm_name: 'Farm 2',
+            farm_name: 'Iron Hill Lands',
             vegetable: 'Potato',
             vegetableEmoji: "🥔",
             capacity: {min: 5, max: 7},
-            address: "907 Amarantes St., H7Y 2G9, QC, CA",
+            address: "2749 102nd Avenue, V1J3Y7, BC, CA",
             distance: '10km',
             dateRange: {min: new Date(2022, 11, 1), max: new Date(2022, 11, 5)},
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget aliquam lacinia, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nisl. Donec auctor, nisl eget aliquam lacinia, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nisl.'
+            description: 'Looking for a group of cool people willing to give their day away to gather some potatoes for the greater cause!'
         },
         {
-            farm_name: 'Farm 3',
+            farm_name: 'Red Mountain Lands',
             vegetable: 'Cabbage',
             vegetableEmoji: "🥬",
             capacity: {min: 15, max: 20},
-            address: "907 Amarantes St., H7Y 2G9, QC, CA",
+            address: "1031 Port Washington Road, T0K0E0, AB, CA",
             distance: '15km',
             dateRange: {min: new Date(2022, 11, 1), max: new Date(2022, 11, 5)},
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget aliquam lacinia, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nisl. Donec auctor, nisl eget aliquam lacinia, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nisl.'
+            description: 'Looking for a group of cool people willing to give their day away to gather some cabbages for the greater cause!'
         },
         {
-            farm_name: 'Farm 4',
+            farm_name: 'Oak Wood Pastures',
             vegetable: 'Carrot',
             vegetableEmoji: "🥕",
             capacity: {min: 8, max: 10},
-            address: "907 Amarantes St., H7Y 2G9, QC, CA",
+            address: "2132 Boulevard Laflèche, G5R3Y5, QC, CA",
             distance: '20km',
             dateRange: {min: new Date(2022, 11, 1), max: new Date(2022, 11, 5)},
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget aliquam lacinia, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nisl. Donec auctor, nisl eget aliquam lacinia, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nisl.'
+            description: 'Looking for a group of cool people willing to give their day away to gather some carrots for the greater cause!'
         },
         {
-            farm_name: 'Farm 5',
+            farm_name: 'Deer Cove Farmstead',
             vegetable: 'Onion',
             vegetableEmoji: "🧄",
             capacity: {min: 5, max: 8},
-            address: "907 Amarantes St., H7Y 2G9, QC, CA",
+            address: "2505 Lockhart Drive, L4M3B1, ON, CA",
             distance: '25km',
             dateRange: {min: new Date(2022, 11, 1), max: new Date(2022, 11, 5)},
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget aliquam lacinia, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nisl. Donec auctor, nisl eget aliquam lacinia, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nisl.'
+            description: 'Looking for a group of cool people willing to give their day away to gather some onions for the greater cause!'
         },
         {
-            farm_name: 'Farm 6',
+            farm_name: 'Pine Valley Range',
             vegetable: 'Cucumber',
             vegetableEmoji: "🥒",
             capacity: {min: 10, max: 20},
-            address: "907 Amarantes St., H7Y 2G9, QC, CA",
+            address: "1439 47th Avenue, Y0B1T0, YT, CA",
             distance: '30km',
             dateRange: {min: new Date(2022, 11, 1), max: new Date(2022, 11, 5)},
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec auctor, nisl eget aliquam lacinia, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nisl. Donec auctor, nisl eget aliquam lacinia, nunc nisl aliquam nisl, eget aliquam nisl nunc vel nisl.'
+            description: 'Looking for a group of cool people willing to give their day away to gather some cucumbers for the greater cause!'
         },
     ];
 
